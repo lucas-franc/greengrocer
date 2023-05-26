@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:greengrocer/src/config/custom_colors.dart';
-import 'package:greengrocer/src/home/home_view.dart';
+import 'package:greengrocer/src/ui/home/home_view.dart';
 
 class BaseView extends StatefulWidget {
   const BaseView({super.key});

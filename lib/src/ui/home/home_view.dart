@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:greengrocer/src/config/custom_colors.dart';
 import 'package:greengrocer/src/ui/home/components/category_tile.dart';
+import 'package:greengrocer/src/config/data.dart' as data;
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -61,7 +62,6 @@ class _HomeViewState extends State<HomeView> {
       body: Column(
         children: [
           //Search
-
           Padding(
             padding: const EdgeInsets.symmetric(
               horizontal: 20,
@@ -91,6 +91,7 @@ class _HomeViewState extends State<HomeView> {
               ),
             ),
           ),
+
           //Categories
           Container(
             padding: const EdgeInsets.only(
@@ -104,18 +105,37 @@ class _HomeViewState extends State<HomeView> {
                 return CategoryTile(
                   onPressed: () {
                     setState(() {
-                      selectedCategory = categories[index];
+                      selectedCategory = data.categories[index];
                     });
                   },
-                  category: categories[index],
-                  isSelected: categories[index] == selectedCategory,
+                  category: data.categories[index],
+                  isSelected: data.categories[index] == selectedCategory,
                 );
               },
               separatorBuilder: (_, index) => const SizedBox(
                 width: 10,
               ),
-              itemCount: categories.length,
+              itemCount: data.categories.length,
             ),
+          ),
+
+          //Products
+          Expanded(
+            child: GridView.builder(
+                padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+                physics: const BouncingScrollPhysics(),
+                shrinkWrap: true,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    mainAxisSpacing: 10,
+                    crossAxisSpacing: 10,
+                    childAspectRatio: 9 / 11.5),
+                itemCount: data.items.length,
+                itemBuilder: (context, index) {
+                  return Container(
+                    color: Colors.red,
+                  );
+                }),
           )
         ],
       ),
