@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:greengrocer/src/auth/sign_in_view.dart';
+import 'package:greengrocer/src/ui/auth/sign_in_view.dart';
 import 'package:greengrocer/src/config/custom_colors.dart';
 
 void main() {
