@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:greengrocer/src/config/custom_colors.dart';
 import 'package:greengrocer/src/ui/home/components/category_tile.dart';
 import 'package:greengrocer/src/config/data.dart' as data;
+import 'package:greengrocer/src/ui/home/components/product_tile.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -130,11 +131,9 @@ class _HomeViewState extends State<HomeView> {
                     mainAxisSpacing: 10,
                     crossAxisSpacing: 10,
                     childAspectRatio: 9 / 11.5),
-                itemCount: data.items.length,
+                itemCount: data.products.length,
                 itemBuilder: (context, index) {
-                  return Container(
-                    color: Colors.red,
-                  );
+                  return ProductTile(product: data.products[index]);
                 }),
           )
         ],
